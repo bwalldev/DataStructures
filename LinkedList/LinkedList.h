@@ -76,7 +76,7 @@ void LinkedList<T>::print() const {
         std::cout << "List is currently empty\n\n";
 }
 
-// Pop: Removes and returns the last element from the linked list
+// Pop: Removes the last element from the linked list
 template <typename T>
 void LinkedList<T>::pop() {
     // When there's no elements in the list
