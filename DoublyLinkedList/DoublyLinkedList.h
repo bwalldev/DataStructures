@@ -43,7 +43,22 @@ void DoublyLinkedList<T>::clear() {
 // Outputs the doubly linked list's elements
 template <typename T>
 void DoublyLinkedList<T>::print() const {
+    std::cout << "Doubly Linked List: ";
 
+    if (size == 0) {
+        std::cout << "List is empty.\n\n";
+        return;
+    }
+
+    Node<T>* curr = head;
+
+    while (curr->next) {
+        std::cout << curr->val <, " -> ";
+
+        curr = curr->next;
+    }
+
+    std::cout << curr->val << "\n\n";
 }
 
 // Inserts an element at the front of the doubly linked list
