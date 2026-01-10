@@ -11,15 +11,16 @@ class DoublyLinkedList {
     public:
         DoublyLinkedList() : length(0), head(nullptr), tail(nullptr) {}
         ~DoublyLinkedList() { clear(); };
-        size_t getSize();
+        size_t getSize() const;
         void clear();
+        void print() const;
         void push_front(T value);
-        bool exists(T value);
+        bool exists(T value) const;
 };
 
 // Returns the number of elements currently in the doubly linked list
 template <typename T>
-size_t DoublyLinkedList<T>::getSize() {
+size_t DoublyLinkedList<T>::getSize() const {
     return size;
 }
 
@@ -37,6 +38,12 @@ void DoublyLinkedList<T>::clear() {
     head = nullptr;
     tail = nullptr;
     length = 0;
+}
+
+// Outputs the doubly linked list's elements
+template <typename T>
+void DoublyLinkedList<T>::print() const {
+
 }
 
 // Inserts an element at the front of the doubly linked list
@@ -60,7 +67,7 @@ void DoublyLinkedList<T>::push_front(T value) {
 
 // Returns true if a particular element exists in the doubly linked list
 template <typename T>
-bool DoublyLinkedList<T>::exists(T value) {
+bool DoublyLinkedList<T>::exists(T value) const {
     if (length == 0)
         return false;
 
