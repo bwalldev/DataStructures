@@ -1,6 +1,7 @@
 // Doubly linked list implementation
 
 #include "Node.h"
+#include <iostream>
 
 template <typename T>
 class DoublyLinkedList {
@@ -14,6 +15,7 @@ class DoublyLinkedList {
         size_t getSize() const;
         void clear();
         void print() const;
+        void push_back(T value);
         void push_front(T value);
         bool exists(T value) const;
 };
