@@ -1,27 +1,29 @@
-// Doubly Linked List implementation
+// Doubly linked list implementation
 
 #include "Node.h"
 
 template <typename T>
 class DoublyLinkedList {
     private:
-        int length;
+        size_t size;
         Node<T>* head;
         Node<T>* tail;
     public:
         DoublyLinkedList() : length(0), head(nullptr), tail(nullptr) {}
-        //~DoublyLinkedList();
-        int size();
+        ~DoublyLinkedList() { clear(); };
+        size_t getSize();
         void clear();
+        void push_front(T value);
+        bool exists(T value);
 };
 
-// Size: Returns the number of elements currently in the doubly linked list
+// Returns the number of elements currently in the doubly linked list
 template <typename T>
-int DoublyLinkedList<T>::size() {
-    return length;
+size_t DoublyLinkedList<T>::getSize() {
+    return size;
 }
 
-// Clear: Removing all the elements from the doubly linked list
+// Removes all of the elements from the doubly linked list
 template <typename T>
 void DoublyLinkedList<T>::clear() {
     Node<T>* curr = head;
@@ -35,4 +37,41 @@ void DoublyLinkedList<T>::clear() {
     head = nullptr;
     tail = nullptr;
     length = 0;
+}
+
+// Inserts an element at the front of the doubly linked list
+template <typename T>
+void DoublyLinkedList<T>::push_front(T value) {
+    if (length == 0) {
+        head = new Node<T>(value);
+        tail = head;
+        size++;
+        return;
+    }
+
+    Node<T>* newNode = new Node<T>(value);
+
+    head->prev = newNode;
+    newNode->next = head;
+    head = newNode;
+
+    size++;
+}
+
+// Returns true if a particular element exists in the doubly linked list
+template <typename T>
+bool DoublyLinkedList<T>::exists(T value) {
+    if (length == 0)
+        return false;
+
+    Node<T>* curr = head;
+
+    while (curr) {
+        if (curr->val == value)
+            return true;
+
+        curr = curr->next;
+    }
+
+    return false;
 }
