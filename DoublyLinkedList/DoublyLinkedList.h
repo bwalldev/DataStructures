@@ -37,7 +37,7 @@ void DoublyLinkedList<T>::clear() {
 
     head = nullptr;
     tail = nullptr;
-    length = 0;
+    size = 0;
 }
 
 // Outputs the doubly linked list's elements
@@ -64,7 +64,7 @@ void DoublyLinkedList<T>::print() const {
 // Inserts an element at the front of the doubly linked list
 template <typename T>
 void DoublyLinkedList<T>::push_front(T value) {
-    if (length == 0) {
+    if (size == 0) {
         head = new Node<T>(value);
         tail = head;
         size++;
@@ -83,7 +83,7 @@ void DoublyLinkedList<T>::push_front(T value) {
 // Returns true if a particular element exists in the doubly linked list
 template <typename T>
 bool DoublyLinkedList<T>::exists(T value) const {
-    if (length == 0)
+    if (size == 0)
         return false;
 
     Node<T>* curr = head;
