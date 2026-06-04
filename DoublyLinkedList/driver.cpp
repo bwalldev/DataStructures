@@ -1,0 +1,15 @@
+#include "DoublyLinkedList.h"
+#include <string>
+
+int main(int argc, char *args[]) 
+{
+    DoublyLinkedList<std::string> bands;
+
+    bands.pushFront("The Starting Line");
+    bands.pushFront("Blink 182");
+    bands.pushFront("The Story So Far");
+
+    bands.printForward();
+    
+    return 0;
+}

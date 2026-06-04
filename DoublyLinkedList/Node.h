@@ -1,7 +1,8 @@
 // Simple node struct
 
 template <typename T>
-struct Node {
+struct Node 
+{
     T val;
     Node<T>* prev;
     Node<T>* next;
