@@ -111,14 +111,22 @@ void DoublyLinkedList<T>::printBackward() const
 }
 
 // Inserts an element at the end of the doubly linked list
-// NEED TO IMPLEMENT
 template <typename T>
 void DoublyLinkedList<T>::pushBack(T value)
 {
     if (size == 0) 
     {
+        pushFront(value);
+        
         return;
     }
+
+    Node<T> *newNode = new Node<T>(value);
+
+    newNode->prev = tail;
+    tail->next = newNode;
+    tail = newNode;
+    size++;
 }
 
 // Inserts an element at the front of the doubly linked list
