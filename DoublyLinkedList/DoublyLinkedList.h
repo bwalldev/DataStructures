@@ -65,7 +65,7 @@ void DoublyLinkedList<T>::clear()
 template <typename T>
 void DoublyLinkedList<T>::printForward() const 
 {
-    std::cout << "Doubly Linked List:\n";
+    std::cout << "Doubly linked list:\n";
 
     if (size == 0) 
     {
@@ -86,10 +86,28 @@ void DoublyLinkedList<T>::printForward() const
 }
 
 // Outouts the doubly linked list's elements in reverse order
-// NEED TO IMPLEMENT
 template <typename T>
 void DoublyLinkedList<T>::printBackward() const
 {
+    std::cout << "Doubly linked list reversed:\n";
+
+    if (size == 0)
+    {
+        std::cout << "List is empty.";
+        
+        return; 
+    }
+
+    Node<T> *curr = tail;
+
+    while (curr->prev)
+    {
+        std::cout << curr->val << " -> ";
+
+        curr = curr->prev;
+    }
+
+    std::cout << curr->val << "\n";
 }
 
 // Inserts an element at the end of the doubly linked list

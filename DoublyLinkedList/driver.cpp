@@ -10,6 +10,7 @@ int main(int argc, char *args[])
     bands.pushFront("The Story So Far");
 
     bands.printForward();
+    bands.printBackward();
     
     return 0;
 }
